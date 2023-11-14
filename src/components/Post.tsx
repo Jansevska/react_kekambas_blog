@@ -8,9 +8,5 @@ type PostType = {
 }
 
 export default function Post({post}:{post:PostType}) {
-    return (
-        <>
-        <p><b>{ post.author.username }</b> -- { post.body }</p>
-        </>
-    )
+    return <p><b>{ post.author.username }</b> -- { post.body }</p>
 }
