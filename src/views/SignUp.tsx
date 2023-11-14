@@ -2,12 +2,13 @@ import { useState } from 'react'
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import UserType from '../types/auth'
 
 type Props = {}
 
 export default function SignUp({ }: Props) {
 
-    const [userFormData, setUserFormData] = useState(
+    const [userFormData, setUserFormData] = useState<Partial<UserType>>(
         {
             firstName: '',
             lastName: '',
@@ -19,6 +20,7 @@ export default function SignUp({ }: Props) {
     )
 
     const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>):void => {
+        console.log(e.target.name, e.target.value);
         setUserFormData({...userFormData, [e.target.name]: e.target.value})
     }
 
