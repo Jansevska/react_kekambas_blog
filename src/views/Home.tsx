@@ -16,6 +16,7 @@ export default function Home() {
 
     function getRandomStudend() {
     setStudentForWb(kekambas.students[Math.floor(Math.random()* kekambas.students.length)])
+    console.log(studentForWB)
     }
 
     return (
