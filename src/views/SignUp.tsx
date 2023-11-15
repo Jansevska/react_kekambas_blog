@@ -25,7 +25,6 @@ export default function SignUp({ logUserIn }: SignUpProps) {
     )
 
     const handleInputChange = (e:React.ChangeEvent<HTMLInputElement>):void => {
-        console.log(e.target.name, e.target.value);
         setUserFormData({...userFormData, [e.target.name]: e.target.value})
     }
 
@@ -34,6 +33,13 @@ export default function SignUp({ logUserIn }: SignUpProps) {
         logUserIn(userFormData);
         navigate('/');
     }
+
+    const validatePasswords = (password:string, confirmPassword:string):boolean => {
+        return password.length >= 5 && password === confirmPassword
+    }
+
+    const validatedForm = validatePasswords(userFormData.password!, userFormData.confirmPassword!)
+    console.log(validatedForm)
 
     return (
         <>
@@ -59,7 +65,7 @@ export default function SignUp({ logUserIn }: SignUpProps) {
                         <Form.Label htmlFor='confirmPass'>Confirm Password</Form.Label>
                         <Form.Control value={userFormData.confirmPassword} name='confirmPass' type='password' onChange={handleInputChange} />
 
-                        <Button type="submit" variant='outline-dark' className="w-100 mt-3">Sign Up</Button>
+                        <Button type="submit" variant='outline-dark' className="w-100 mt-3" disabled={!validatedForm}>Sign Up</Button>
                     </Form>
                 </Card.Body>
             </Card>
