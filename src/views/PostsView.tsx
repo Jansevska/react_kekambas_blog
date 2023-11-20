@@ -5,7 +5,7 @@ import PostType from '../types/post';
 
 
 export default function PostsView() {
-
+    
     const [posts, setPosts] = useState<PostType[]>([])
 
     useEffect( () => {
@@ -13,6 +13,7 @@ export default function PostsView() {
         .then(res => res.json())
         .then(data => setPosts(data))
     }, [])
+
 
     return (
         <>

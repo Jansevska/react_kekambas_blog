@@ -14,7 +14,7 @@ export default function Post({ post }:PostProps) {
             <CardBody>
                 <Card.Title>{ post.title }</Card.Title>
                 <Card.Text>{ post.body }</Card.Text>
-                <Card.Subtitle>Posted at {post.dateCreated} by User #{post.userId}</Card.Subtitle>
+                <Card.Subtitle>Posted at {post.dateCreated} by {post.author.username}</Card.Subtitle>
             </CardBody>
         </Card>
     )
