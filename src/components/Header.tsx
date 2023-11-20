@@ -13,7 +13,7 @@ export default function Header({ isLoggedIn, handleLogOut }: HeaderProps) {
     return (
         <Navbar expand="lg" className="bg-body-dark">
             <Container>
-                <Navbar.Brand as={Link} to='/'>Kekambas Blog</Navbar.Brand>
+                <Navbar.Brand as={Link} to='/'>React Kekambas Blog</Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link as={Link} to='/posts'>Posts</Nav.Link>
                     { isLoggedIn ? (
