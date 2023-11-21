@@ -8,7 +8,7 @@ import { createNewUser, login } from '../lib/apiWrapper';
 import CategoryType from '../types/category'
 
 type SignUpProps = {
-    logUserIn: (user:Partial<UserType>) => void
+    logUserIn: (user:UserType) => void
     flashMessage: (message:string, category:CategoryType) => void
 }
 
@@ -56,15 +56,15 @@ export default function SignUp({ logUserIn, flashMessage }: SignUpProps) {
             <h1 className="text-center">Sign Up</h1>
             <Card className='mt-3'>
                 <Card.Body>
-                    <Form onSubmit={handleFormSubmit}>
+                <Form onSubmit={handleFormSubmit}>
                         <Form.Label htmlFor='firstName'>First Name</Form.Label>
                         <Form.Control value={userFormData.firstName} name='firstName' onChange={handleInputChange} />
 
                         <Form.Label htmlFor='lastName'>Last Name</Form.Label>
-                        <Form.Control value={userFormData.lastName} name='lastName' onChange={handleInputChange}  />
+                        <Form.Control value={userFormData.lastName} name='lastName' onChange={handleInputChange} />
 
                         <Form.Label htmlFor='email'>Email</Form.Label>
-                        <Form.Control value={userFormData.email} name='email' type='email' onChange={handleInputChange}  />
+                        <Form.Control value={userFormData.email} name='email' type='email' onChange={handleInputChange} />
 
                         <Form.Label htmlFor='username'>Username</Form.Label>
                         <Form.Control value={userFormData.username} name='username' onChange={handleInputChange} />
@@ -72,10 +72,10 @@ export default function SignUp({ logUserIn, flashMessage }: SignUpProps) {
                         <Form.Label htmlFor='password'>Password</Form.Label>
                         <Form.Control value={userFormData.password} name='password' type='password' onChange={handleInputChange} />
 
-                        <Form.Label htmlFor='confirmPass'>Confirm Password</Form.Label>
-                        <Form.Control value={userFormData.confirmPassword} name='confirmPass' type='password' onChange={handleInputChange} />
+                        <Form.Label htmlFor='confirmPassword'>Confirm Password</Form.Label>
+                        <Form.Control value={userFormData.confirmPassword} name='confirmPassword' type='password' onChange={handleInputChange} />
 
-                        <Button type="submit" variant='outline-dark' className="w-100 mt-3" disabled={!validatedForm}>Sign Up</Button>
+                        <Button type='submit' variant='outline-light' className='w-100 mt-3' disabled={!validatedForm}>Sign Up</Button>
                     </Form>
                 </Card.Body>
             </Card>
